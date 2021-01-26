@@ -2,36 +2,25 @@
   grid-area: header;
 }
 
-.section1 {
-  grid-area: section1;
-}
-
-.section2 {
-  grid-area: section2;
-}
-
-.section3 {
-  grid-area: section3;
+#sections {
+  grid-area: section
 }
 
 .aside {
   grid-area: aside;
 }
 
-.article1 {
-  grid-area: article1;
-}
-
-.article2 {
-  grid-area: article2;
-}
-
-.article3 {
-  grid-area: article3;
+#article {
+  grid-area: article;
 }
 
 .footer {
   grid-area: footer;
+}
+
+html {
+  font-family: 'Imbue', serif;
+  letter-spacing: 0.15rem;
 }
 
 .container {
@@ -39,9 +28,9 @@
   width: 80%;
   margin: auto;
   display: grid;
-  grid-template-columns: [col1]1fr [col2]1fr [col3]1fr;
+  grid-template-columns: repeat(3fr);
   grid-template-rows: [row1]auto [row2]auto [row3]auto [row4]auto [row5]5%;
-  grid-template-areas: "header header header" "section1 section2 section3" "aside aside aside" "article1 article2 article3" "footer footer footer";
+  grid-template-areas: "header header header" "section section section" "aside aside aside" "article article article" "footer footer footer";
 }
 
 .header {
@@ -57,6 +46,21 @@ h1 {
   text-align: center;
   font-family: fantasy;
   margin: 1rem;
+  font-size: 4rem;
+}
+
+nav ul {
+  margin-top: 2rem;
+  list-style: circle;
+}
+
+nav ul li {
+  letter-spacing: 0.4rem;
+  text-transform: uppercase;
+}
+
+#sections {
+  display: flex;
 }
 
 section {
@@ -74,9 +78,20 @@ aside {
 }
 
 img {
-  width: 50%;
-  height: 60%;
+  width: 100%;
+  height: 50%;
   margin: auto;
+}
+
+.asideP {
+  font-size: 2rem;
+  font-family: fantasy;
+  text-align: center;
+  margin-top: 1rem;
+}
+
+#article {
+  display: flex;
 }
 
 article {
@@ -93,4 +108,37 @@ h6 {
   border: solid 1px rgb(95, 109, 32);
   margin: 1rem;
   text-align: center;
+}
+
+@media (max-width: 768px) {
+  #sections {
+    flex-direction: column;
+  }
+  .header h1 {
+    font-size: 1.5rem;
+  }
+  nav ul {
+    margin-top: 1.7rem;
+    margin-right: 0.5rem;
+  }
+  nav ul li {
+    font-size: 0.7rem;
+    letter-spacing: 0.1rem;
+  }
+  #article {
+    flex-direction: column;
+  }
+  @media (max-width: 380px) {
+    .header h1 {
+      font-size: 1rem;
+      margin: 0;
+    }
+    nav ul {
+      margin: 0.5rem;
+      margin-right: 0.3rem;
+    }
+    nav ul li {
+      font-size: 0.5rem;
+    }
+  }
 }
